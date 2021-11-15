@@ -1,4 +1,4 @@
-<!-- If the user enters walk in the textbox and submits, the alien image will move back and forth at 1px every 100ms. -->
+<!-- If the user types “bye” in the textbox and presses the button after the alien has been created, the alien will be removed from the document (display:none).  -->
 
 <html>
   <head>
@@ -61,6 +61,8 @@
          } else if (x == "stop") {
 
          } else if (x == "bye") {
+            var d3 = document.getElementById("div2")
+            d3.style.display = "none"
 
          } else if (x == "ajax") {
            var newRequest = new XMLHttpRequest();
