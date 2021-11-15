@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>localStorage</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+                background-color: grey;
+            }
+            p {
+                test-align: center;
+            }
+            h1{
+                text-align: center;
+            }
+            code{
+                font-size: 28px;
+            }
+            </style>
+    </head>
+    <body>
+      <h1> This page is about <span style="color:red">localStorage</span></h1>
+        <p> Local storage is a read-only propery of the widnow interface which allows you to access the storage in the browser to be used across borwser sessions. </p>
+        <p> This creates a storage object that can be used to store data in the browser. Local storage uses key value pairs to store access and modify data. </p>
+        <code>
+          myStorage = window.localStorage;
+            </code>
+        <p> you can add a data item like this: </p>
+        <code>
+          myStorage.setItem("key", "value");
+            </code>
+        <p> you can read the stored item like this: </p>
+        <code>
+          myStorage.getItem("key");
+            </code>
+        <p> you can remove the item like this: </p>
+        <code>
+          myStorage.removeItem("key");
+            </code>
+
+    </body>
+</html>

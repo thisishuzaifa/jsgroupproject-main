@@ -1,0 +1,119 @@
+<!-- If the user enters walk in the textbox and submits, the alien image will move back and forth at 1px every 100ms. -->
+
+<html>
+  <head>
+    <title>Index</title>
+    <script>
+       function doTheseThings() {
+         var x = document.getElementById("myText").value;
+         if (x == "storage") {
+           window.location.href = "storage.html";
+         }
+         else if (x == "alphabet") {
+               var d1 = document.createElement('div')
+               d1.id = "div1"
+               d1.style.minHeight = "110px"
+               document.body.appendChild(d1)
+              // loop from 'z'.charCodeAt(0) to 'a'.charCodeAt(0)
+               for(var i = 'z'.charCodeAt(0); i >= 'a'.charCodeAt(0); i--) {
+   
+                  var letter = String.fromCharCode(i) 
+
+                  var im = document.createElement('img')
+                  im.id = letter
+                  im.width = 40
+                  im.src = "images/letters/" + letter + ".png"
+                  d1.appendChild(im)
+                  // image onclick changes all images to the clicked image
+                  im.onclick = function() {
+                     var imgs = document.getElementsByTagName('img')
+                     for(var i = 0; i < imgs.length; i++) {
+                        imgs[i].src = this.src
+                     }
+                  }
+               }
+       }
+         else if (x == "plugin") {
+           window.location.href = "plugin.html";
+         } else if (x == "alien") {
+            var d2 = document.createElement('div')
+            d2.id = "div2"
+            d2.style.minHeight = "110px"
+            document.body.appendChild(d2)
+            var im = document.createElement('img')
+            im.id = "alien"
+            im.width = 40
+            im.src = "images/alien/alienlwalk0.gif"
+            d2.appendChild(im)
+            im.onclick = function() {
+              var imgs = document.getElementsByTagName('img')
+              for(var i = 0; i < imgs.length; i++) {
+                  imgs[i].src = this.src
+              }
+            }
+
+         } else if (x == "walk") {
+           
+
+
+         } else if (x == "run") {
+
+         } else if (x == "stop") {
+
+         } else if (x == "bye") {
+
+         } else if (x == "ajax") {
+           var newRequest = new XMLHttpRequest();
+           newRequest.open("GET", "https://Users/huzaifa/Downloads/jsgroupproject-main/advice.txt", true);
+           newRequest.onreadystatechange = function() {
+             if (newRequest.readyState == 4 && newRequest.status == 200) {
+               var advice = newRequest.responseText;
+               var adviceArray = JSON.parse(advice);
+               var adviceString = "";
+               for (var i = 0; i < adviceArray.length; i++) {
+                 adviceString += adviceArray[i] + " ";
+               }
+               document.getElementById("ajax").innerHTML = adviceString.toUpperCase();
+             }
+           }
+           newRequest.send();
+         }
+
+      else if (x == "jquery") {
+              var img1 = document.createElement("img");
+              var img2 = document.createElement("img");
+              var img3 = document.createElement("img");
+              var img4 = document.createElement("img");
+              img1.setAttribute("src", "images/bird.jpg");
+              img1.setAttribute("width", "200");
+              img2.setAttribute("src", "images/cat.jpg");
+              img2.setAttribute("width", "200");
+              img3.setAttribute("src", "images/dog.jpg");
+              img3.setAttribute("width", "200");
+              img4.setAttribute("src", "images/turtle.jpg");
+              img4.setAttribute("width", "200");
+              document.body.appendChild(img1);
+              document.body.appendChild(img2);
+              document.body.appendChild(img3);
+              document.body.appendChild(img4);
+              img2.addEventListener("click", function() {
+                 img2.style.border = "thick solid red";
+              });}
+         else {
+           console.log("Please enter a valid command");
+         }
+       }
+    </script>
+  </head>
+  <body>
+    <h1>Home Page - Please enter the file you want to navigate to.</h1>
+    <p>Please enter a file name:</p>
+    <form>
+      <input type="text" id="myText" />
+      <input type="button" value="Submit" onclick="doTheseThings()" />
+    </form>
+    <div id="ajax"></div>
+
+    <div id="alphabet"></div>
+  </body>
+</html>
